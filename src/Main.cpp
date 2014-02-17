@@ -48,7 +48,11 @@ int main(int argc, char **argv) {
   printf("Init: %d\n", TTF_Init());
 
   // Create the game
-  board = new Board();
+  int state[3][3] = {{3, 0, 6}, {1, 4, 7}, {2, 5, 8}};
+  board = new Board(state);
+  board->search();
+
+  printf("Done\n");
   
   // Start main loop
   emscripten_set_main_loop(main_loop, 10, 1);
